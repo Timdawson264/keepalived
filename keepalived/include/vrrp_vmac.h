@@ -39,11 +39,11 @@
 
 /* Defines */
 enum vrrp_vmac_bits {
-	VRRP_VMAC_BIT = 0,
-	VRRP_VMAC_UP_BIT = 1,
-	VRRP_VMAC_XMITBASE_BIT = 2,
+        VRRP_VMAC_BIT = 0,
+        VRRP_VMAC_UP_BIT = 1,
+        VRRP_VMAC_XMITBASE_BIT = 2,
 #ifdef _HAVE_VRRP_IPVLAN_
-	VRRP_IPVLAN_BIT = 3,
+        VRRP_IPVLAN_BIT = 3,
 #endif
 };
 
@@ -56,6 +56,7 @@ extern bool replace_link_local_address(interface_t *);
 #if !HAVE_DECL_IFLA_INET6_ADDR_GEN_MODE
 extern void remove_vmac_auto_gen_addr(interface_t *, struct in6_addr *);
 #endif
+extern bool netlink_link_add_vmac_to_base( vrrp_t *vrrp, interface_t* base_ifp, char* vmac_ifname );
 extern bool netlink_link_add_vmac(vrrp_t *);
 extern void netlink_link_del_vmac(vrrp_t *);
 #ifdef _HAVE_VRRP_IPVLAN_
